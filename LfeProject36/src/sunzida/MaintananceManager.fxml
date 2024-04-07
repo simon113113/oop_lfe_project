@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sunzida.MaintananceManagerController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sunzida.MaintananceManagerController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <BorderPane prefHeight="542.0" prefWidth="773.0">
          <top>
             <MenuBar BorderPane.alignment="CENTER">
               <menus>
@@ -38,7 +38,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <top>
-                  <AnchorPane prefHeight="84.0" prefWidth="203.0" style="-fx-background-color: #1E90FF;" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="84.0" prefWidth="203.0" style="-fx-background-color: #89CFF0;" BorderPane.alignment="CENTER">
                      <children>
                         <Label alignment="CENTER" layoutX="63.0" layoutY="1.0" text="Welcome">
                            <font>
@@ -50,21 +50,21 @@
                   </AnchorPane>
                </top>
                <center>
-                  <AnchorPane prefHeight="358.0" prefWidth="194.0" style="-fx-background-color: #1E90FF;" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="358.0" prefWidth="194.0" style="-fx-background-color: #89CFF0;" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="19.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Button" />
-                        <Button layoutX="19.0" layoutY="39.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Button" />
-                        <Button layoutX="19.0" layoutY="80.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Button" />
-                        <Button layoutX="19.0" layoutY="121.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Button" />
-                        <Button layoutX="19.0" layoutY="162.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Button" />
-                        <Button layoutX="19.0" layoutY="204.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Button" />
-                        <Button layoutX="19.0" layoutY="246.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Button" />
-                        <Button layoutX="19.0" layoutY="289.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Button" />
+                        <Button layoutX="19.0" layoutY="-3.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Services" />
+                        <Button layoutX="19.0" layoutY="39.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="User details" />
+                        <Button layoutX="19.0" layoutY="80.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Employee" />
+                        <Button layoutX="19.0" layoutY="121.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Generate Report" />
+                        <Button layoutX="19.0" layoutY="162.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Feedback &amp; Complain" />
+                        <Button layoutX="19.0" layoutY="204.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Transportation" />
+                        <Button layoutX="19.0" layoutY="246.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Event" />
+                        <Button layoutX="19.0" layoutY="289.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="166.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Send Notice" />
                      </children>
                   </AnchorPane>
                </center>
                <bottom>
-                  <AnchorPane prefHeight="56.0" prefWidth="203.0" style="-fx-background-color: #1E90FF;" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="56.0" prefWidth="203.0" style="-fx-background-color: #89CFF0;" BorderPane.alignment="CENTER">
                      <children>
                         <Line endX="201.99998474121094" endY="1.0" startX="-1.52587890625E-5" startY="1.0" stroke="WHITE" />
                         <Button layoutX="22.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Home" />
@@ -75,18 +75,11 @@
             </BorderPane>
          </left>
          <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER" />
-               </center>
-               <top>
-                  <Label text="Financial Report" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="23.0" />
-                     </font>
-                  </Label>
-               </top>
-            </BorderPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="525.0" prefWidth="566.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </center>
       </BorderPane>
    </children>
