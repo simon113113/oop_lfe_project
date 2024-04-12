@@ -166,9 +166,9 @@ public class LoginController implements Initializable {
            //----------------------------
         //For User Vanue Incharge |
         //----------------------------
-        if ("Vanue Incharge".equals(userType)) {
+        if ("Venue Incharge".equals(userType)) {
             //Load the file
-            File employeeFile = new File("VanueIncharge.bin");
+            File employeeFile = new File("VenueIncharge.bin");
 
             // Check if the file exists
             if (employeeFile.exists()) {
