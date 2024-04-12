@@ -19,18 +19,23 @@ import javafx.scene.control.ComboBox;
 public class TripAnalyticsController implements Initializable {
 
     @FXML
-    private ComboBox<?> venueCB;
+    private ComboBox<String> venueCB;
     @FXML
-    private ComboBox<?> semesterCB;
+    private ComboBox<String> semesterCB;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-
+        // Add sample values to the venue ComboBox
+        
+        venueCB.getItems().addAll("venue 1", "venue 2","venue 3");
+      
+       //
+        semesterCB.getItems().addAll("Spring 2022", "Fall 2022", "Spring 2023");
+    }
+    
     @FXML
     private void returntodashboardClickedButton(ActionEvent event) {
     }
