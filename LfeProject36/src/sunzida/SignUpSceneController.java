@@ -81,6 +81,20 @@ public class SignUpSceneController implements Initializable {
         return email.contains("@") && email.endsWith(".com");
     }
 
+    private void saveUserDataToFile(AllUserData userData) {
+        File allUserDataFile = new File("AllUserData.bin");
+
+        try (FileOutputStream fos = new FileOutputStream(allUserDataFile, true);
+            ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(userData);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "User data saved successfully");
+            alert.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to save user data");
+            alert.showAndWait();
+        }
+    }
     
     @FXML
     private void RegButtonOnClick(ActionEvent event) {
@@ -204,7 +218,7 @@ public class SignUpSceneController implements Initializable {
                     e.printStackTrace(System.out);} 
                 
             }
-        
+        //For financial officer
         else if(usertypeComboBox.getValue().equals("Financial Officer")) {
                 try{
                 FileOutputStream fos;
@@ -241,15 +255,42 @@ public class SignUpSceneController implements Initializable {
         stage.show();
     } catch (IOException ex) {
         ex.printStackTrace();
-      
     }
-        
-        
+    //Creates an instance of AllUserData
+        AllUserData userData = new AllUserData(
+                userNameTF.getText(),
+                emailTF.getText(),
+                nameTF.getText(),
+                passTF.getText(),
+                contactTF.getText(),
+                gender,
+                userType,
+                generateUniqueId(),
+                dob.getValue()
+        );
+
+        // Save user data to file
+        saveUserDataToFile(userData);
+    
+  
 }
+
+    @FXML
+    private void BackButton(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Login.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+    }
      
     }
        
-
     
     
 
