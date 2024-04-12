@@ -11,9 +11,9 @@ import java.time.LocalDate;
  *
  * @author User
  */
-public class FinancialOfficer extends User implements Serializable{
+public class MaintananceManager extends User implements Serializable {
     
-    public FinancialOfficer(String username, String email, String name, String password, String contNo, String gender, String usertype, int id, LocalDate dateOfBirth) {
+    public MaintananceManager(String username, String email, String name, String password, String contNo, String gender, String usertype, int id, LocalDate dateOfBirth) {
         super(username, email, name, password, contNo, gender, usertype, id, dateOfBirth);
     }
     

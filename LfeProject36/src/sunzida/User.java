@@ -14,12 +14,9 @@ import java.time.LocalDate;
 public abstract class User implements Serializable {
     protected String username,email,name,password,contNo,gender,usertype;
     protected int id;
-    protected LocalDate dateOfBirth,dateOfjoinl;
+    protected LocalDate dateOfBirth;
 
-    
-
-    
-    public User(String username, String email, String name, String password, String contNo, String gender, String usertype, int id, LocalDate dateOfBirth, LocalDate dateOfjoinl) {
+    public User(String username, String email, String name, String password, String contNo, String gender, String usertype, int id, LocalDate dateOfBirth) {
         this.username = username;
         this.email = email;
         this.name = name;
@@ -29,7 +26,7 @@ public abstract class User implements Serializable {
         this.usertype = usertype;
         this.id = id;
         this.dateOfBirth = dateOfBirth;
-        this.dateOfjoinl = java.time.LocalDate.now();
+       
     }
 
     public String getUsername() {
@@ -104,13 +101,9 @@ public abstract class User implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public LocalDate getDateOfjoinl() {
-        return dateOfjoinl;
-    }
+   
 
-    public void setDateOfjoinl(LocalDate dateOfjoinl) {
-        this.dateOfjoinl = dateOfjoinl;
-    }
+   
     
     
     
