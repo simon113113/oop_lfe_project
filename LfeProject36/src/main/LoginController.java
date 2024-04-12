@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -41,8 +42,6 @@ public class LoginController implements Initializable {
     private Label PassError;
     @FXML
     private ComboBox<String> logInPageUserTypeCombox;
-    @FXML
-    private Hyperlink forgotPassHyprLink;
 
     /**
      * Initializes the controller class.
@@ -69,11 +68,27 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void switchToOtherFrame(ActionEvent event) {
+    private void forgotPassHyprLink(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sunzida/forgetPassScene.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage for the new scene
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
     }
 
     @FXML
-    private void logInPageUserTypeComboxOnClick(ActionEvent event) {
+    private void RegHyprLink(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sunzida/signUpScene.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage for the new scene
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
     }
-    
+   
 }

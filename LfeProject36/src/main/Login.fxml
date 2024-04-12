@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -50,17 +51,21 @@
                                           <Font name="Arial Bold" size="10.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="148.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchToOtherFrame" prefHeight="20.0" prefWidth="58.0" style="-fx-background-color: Transparent;" text="Register" underline="true">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="10.0" />
-                                       </font>
-                                    </Button>
-                                    <ComboBox fx:id="logInPageUserTypeCombox" layoutX="77.0" layoutY="228.0" onAction="#logInPageUserTypeComboxOnClick" prefHeight="17.0" prefWidth="105.0" promptText="Select User" style="-fx-background-color: F9F6EE; -fx-border-color: grey; -fx-background-radius: 100; -fx-border-radius: 100;" />
-                                    <Hyperlink fx:id="forgotPassHyprLink" layoutX="138.0" layoutY="150.0" text="Forgot Password?" underline="true">
+                                    <Hyperlink layoutX="138.0" layoutY="150.0" onAction="#forgotPassHyprLink" text="Forgot Password?" underline="true">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="8.0" />
                                        </font>
                                     </Hyperlink>
+                                    <Hyperlink layoutX="150.0" layoutY="211.0" onAction="#RegHyprLink" text="Register" underline="true">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="8.0" />
+                                       </font>
+                                    </Hyperlink>
+                                    <ComboBox fx:id="logInPageUserTypeCombox" blendMode="MULTIPLY" layoutX="35.0" layoutY="227.0" prefHeight="27.0" prefWidth="175.0" promptText="Select User" style="-fx-background-color: F9F6EE; -fx-border-color: grey; -fx-background-radius: 100; -fx-border-radius: 100;" visibleRowCount="4">
+                                       <effect>
+                                          <InnerShadow />
+                                       </effect>
+                                    </ComboBox>
                                  </children>
                               </AnchorPane>
                            </children>
