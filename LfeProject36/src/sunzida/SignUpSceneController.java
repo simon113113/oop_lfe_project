@@ -30,6 +30,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import tahmina.FacultyIncharge;
+import tahmina.VenueIncharge;
 
 /**
  * FXML Controller class
@@ -168,10 +170,23 @@ public class SignUpSceneController implements Initializable {
             employeeFile = new File("MaintananceManagerList.bin");
         } else if (userType.equals("Financial Officer")) {
             employeeFile = new File("FinancialOfficerList.bin");
-//        } else if (userType.equals("")) {
-//            employeeFile = new File("");
-//        } else if (userType.equals("")) {
-//            employeeFile = new File("");
+        } else if (userType.equals("Venue Incharge")) {
+            employeeFile = new File("VenueIncharge.bin");
+        } else if (userType.equals("Faculty Incharge")) {
+            employeeFile = new File("FacultyIncharge.bin");
+        } else if (userType.equals("Course Manager")) {
+            employeeFile = new File("CourseManager.bin");
+        } else if (userType.equals("Head Monitor")) {
+            employeeFile = new File("HeadMonitor.bin");
+        } else if (userType.equals("Students")) {
+            employeeFile = new File("Students.bin");
+        } else if (userType.equals("Medical Officer")) {
+            employeeFile = new File("MedicalOfficer.bin");
+        } else if (userType.equals("Student monitor")) {
+            employeeFile = new File("Studentmonitor.bin");
+        } else if (userType.equals("Room attendant")) {
+            employeeFile = new File("Roomattendant.bin");
+        
         } else {
             // Handle unrecognized user types or set a default file
             employeeFile = new File("DefaultList.bin");
@@ -242,21 +257,68 @@ public class SignUpSceneController implements Initializable {
                     e.printStackTrace(System.out);}
                        
         }
-        Alert successAlert = new Alert(Alert.AlertType.INFORMATION, "You have been registered successfully");
-    successAlert.showAndWait();
+        
+        //For venue Incharge
+        else if (usertypeComboBox.getValue().equals("Venue Incharge")) {
+            try {
+                FileOutputStream fos;
+                ObjectOutputStream oos;
+                if (employeeFile.exists()) {
+                    fos = new FileOutputStream(employeeFile, true);
+                    oos = new ObjectOutputStream(fos);
+                } else {
+                    fos = new FileOutputStream(employeeFile);
+                    oos = new ObjectOutputStream(fos);
+                }
+                VenueIncharge newAccountant = new VenueIncharge(userNameTF.getText(), emailTF.getText(),
+                        nameTF.getText(), passTF.getText(), contactTF.getText(), gender, usertypeComboBox.getValue(), generateUniqueId(),
+                        dob.getValue());
+//                    newAccountant.setDob(dobDatePicker.getValue());
+                oos.writeObject(newAccountant);
 
-    //load login scene
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Login.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        ex.printStackTrace();
-    }
-    //Creates an instance of AllUserData
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+            }
+
+        }
+        //For venue Incharge
+        else if (usertypeComboBox.getValue().equals("Faculty Incharge")) {
+            try {
+                FileOutputStream fos;
+                ObjectOutputStream oos;
+                if (employeeFile.exists()) {
+                    fos = new FileOutputStream(employeeFile, true);
+                    oos = new ObjectOutputStream(fos);
+                } else {
+                    fos = new FileOutputStream(employeeFile);
+                    oos = new ObjectOutputStream(fos);
+                }
+                FacultyIncharge newAccountant = new FacultyIncharge(userNameTF.getText(), emailTF.getText(),
+                        nameTF.getText(), passTF.getText(), contactTF.getText(), gender, usertypeComboBox.getValue(), generateUniqueId(),
+                        dob.getValue());
+//                    newAccountant.setDob(dobDatePicker.getValue());
+                oos.writeObject(newAccountant);
+
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+            }
+
+        }
+        Alert successAlert = new Alert(Alert.AlertType.INFORMATION, "You have been registered successfully");
+        successAlert.showAndWait();
+
+        //load login scene
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        //Creates an instance of AllUserData
         AllUserData userData = new AllUserData(
                 userNameTF.getText(),
                 emailTF.getText(),
@@ -271,26 +333,21 @@ public class SignUpSceneController implements Initializable {
 
         // Save user data to file
         saveUserDataToFile(userData);
-    
-  
-}
+
+    }
 
     @FXML
     private void BackButton(ActionEvent event) {
         try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Login.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        ex.printStackTrace();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
-    }
-     
-    }
-       
-    
-    
 
+}
