@@ -163,8 +163,56 @@ public class LoginController implements Initializable {
             UserNameError.setText("Invalid");
             PassError.setText("Invalid");
         }
+           //----------------------------
+        //For User Vanue Incharge |
+        //----------------------------
+        if ("Vanue Incharge".equals(userType)) {
+            //Load the file
+            File employeeFile = new File("VanueIncharge.bin");
 
+            // Check if the file exists
+            if (employeeFile.exists()) {
+                try (FileInputStream fis = new FileInputStream(employeeFile); ObjectInputStream ois = new ObjectInputStream(fis)) {
+                    boolean found = false;
+                    while (true) {
+                        MaintananceManager manager = (MaintananceManager) ois.readObject();
+                        // Check if username and password match
+                        if (manager.getUsername().equals(username) && manager.getPassword().equals(password)) {
+                            //if match, load the MaintananceManager.fxml
+                            Parent root = FXMLLoader.load(getClass().getResource("/tahmina/VenueInchargeDashboardScene.fxml"));
+                            Scene scene = new Scene(root);
+                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            stage.setScene(scene);
+                            stage.show();
+                            return;
+                        } //check if username matches
+                        else if (manager.getUsername().equals(username)) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        UserNameError.setText("Invalid username.");
+
+                        return;
+                    }
+                } catch (EOFException e) {
+                    //no match found
+                    System.out.println("No matching user found.");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                //if the file does not exist
+                System.out.println("Employee file does not exist.");
+            }
+            UserNameError.setText("Invalid");
+            PassError.setText("Invalid");
+        }
+
+    
     }
+    
 
     @FXML
     private void forgotPassHyprLink(ActionEvent event) throws IOException {
