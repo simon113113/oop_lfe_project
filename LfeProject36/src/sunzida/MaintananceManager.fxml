@@ -74,7 +74,7 @@
                   <AnchorPane prefHeight="56.0" prefWidth="203.0" style="-fx-background-color: #89CFF0;" BorderPane.alignment="CENTER">
                      <children>
                         <Line endX="201.99998474121094" endY="1.0" startX="-1.52587890625E-5" startY="1.0" stroke="WHITE" />
-                        <Button fx:id="LogoutButton" layoutX="118.0" layoutY="14.0" mnemonicParsing="false" onAction="#SceneChange" prefHeight="29.0" prefWidth="72.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Logout" />
+                        <Button fx:id="LogoutButton" layoutX="118.0" layoutY="14.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="29.0" prefWidth="72.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text="Logout" />
                         <Button fx:id="HomeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#SceneChange" prefHeight="29.0" prefWidth="72.0" style="-fx-background-color: Lavender; -fx-border-color: grey;" text=" Home" />
                      </children>
                   </AnchorPane>
@@ -84,11 +84,11 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane fx:id="dashboard" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: lavender;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="dashboard" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: lavender;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label layoutX="24.0" layoutY="77.0" text="Dashboard" />
                      </children></AnchorPane>
-                  <AnchorPane fx:id="serviceScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;">
+                  <AnchorPane fx:id="serviceScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;" visible="false">
                      <children>
                         <Label alignment="CENTER" layoutX="197.0" prefHeight="51.0" prefWidth="150.0" text="Services">
                            <font>
@@ -147,55 +147,27 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="UserDetailsScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;" visible="false">
+                  <AnchorPane fx:id="UserDetailsScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;">
                      <children>
                         <Label alignment="CENTER" layoutX="197.0" prefHeight="51.0" prefWidth="150.0" text="User Details">
                            <font>
                               <Font name="System Bold" size="23.0" />
                            </font>
                         </Label>
-                        <TableView layoutX="41.0" layoutY="93.0" prefHeight="188.0" prefWidth="485.0">
+                        <TableView fx:id="UserdetailsTableView" layoutX="8.0" layoutY="151.0" prefHeight="188.0" prefWidth="547.0">
                            <columns>
-                              <TableColumn prefWidth="164.0" text="Email" />
-                              <TableColumn prefWidth="87.0" text="ID" />
-                              <TableColumn prefWidth="119.0" text="Password" />
-                              <TableColumn prefWidth="90.0" text="User Type" />
+                              <TableColumn fx:id="idTC_G2" prefWidth="48.0" text="ID" />
+                              <TableColumn fx:id="nameTC_G2" prefWidth="105.00001525878906" text="Name" />
+                              <TableColumn fx:id="emailTC_G2" prefWidth="135.0" text="Email" />
+                              <TableColumn fx:id="userTypeTC_G2" prefWidth="83.0" text="User Type" />
+                              <TableColumn fx:id="contactNoTC_G2" prefWidth="95.0" text="Contact No." />
+                              <TableColumn fx:id="genderTC_G2" prefWidth="65.0" text="Gender" />
                            </columns>
                         </TableView>
-                        <Button layoutX="178.0" layoutY="290.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="84.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Refresh List" />
-                        <TextField layoutX="175.0" layoutY="59.0" prefHeight="25.0" prefWidth="105.0" promptText="Search" />
-                        <Button layoutX="299.0" layoutY="58.0" mnemonicParsing="false" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Search" />
-                        <Button layoutX="275.0" layoutY="290.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="84.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Delete User" />
-                        <Button layoutX="227.0" layoutY="465.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Register" />
-                        <Label layoutX="49.0" layoutY="359.0" text="Email :">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="49.0" layoutY="333.0" text="Register new user" underline="true">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="123.0" layoutY="356.0" promptText="Email" />
-                        <TextField layoutX="123.0" layoutY="390.0" promptText="Password" />
-                        <Label layoutX="49.0" layoutY="393.0" text="Password :">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="49.0" layoutY="424.0" text="User Type :">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                        <ComboBox layoutX="122.0" layoutY="421.0" prefWidth="150.0" promptText="User Type" />
-                        <Label layoutX="307.0" layoutY="359.0" text="ID :">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                        <TextField editable="false" layoutX="337.0" layoutY="356.0" promptText="Auto Generated" />
+                        <Button layoutX="155.0" layoutY="353.0" mnemonicParsing="false" onAction="#LoadButtonG2" prefHeight="27.0" prefWidth="84.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Load" />
+                        <TextField layoutX="175.0" layoutY="104.0" prefHeight="25.0" prefWidth="105.0" promptText="Search" />
+                        <Button layoutX="293.0" layoutY="103.0" mnemonicParsing="false" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Search" />
+                        <Button layoutX="272.0" layoutY="353.0" mnemonicParsing="false" onAction="#deleteButtonG2" prefHeight="27.0" prefWidth="84.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Delete User" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="eventManagementScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;" visible="false">

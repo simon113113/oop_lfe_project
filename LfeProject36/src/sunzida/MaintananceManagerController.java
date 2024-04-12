@@ -19,7 +19,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -29,6 +33,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -96,6 +101,22 @@ public class MaintananceManagerController implements Initializable {
     @FXML
     private ComboBox<String> Catego;
     private ObservableList<Service> serviceList;
+    @FXML
+    private TableView<AllUserData> UserdetailsTableView;
+    @FXML
+    private TableColumn<AllUserData, Integer> idTC_G2;
+    @FXML
+    private TableColumn<AllUserData, String> nameTC_G2;
+    @FXML
+    private TableColumn<AllUserData, String> emailTC_G2;
+    @FXML
+    private TableColumn<AllUserData, String> userTypeTC_G2;
+    @FXML
+    private TableColumn<AllUserData, String> contactNoTC_G2;
+    @FXML
+    private TableColumn<AllUserData, String> genderTC_G2;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -111,11 +132,32 @@ public class MaintananceManagerController implements Initializable {
         contactNoTC.setCellValueFactory(new PropertyValueFactory<Service, String>("ContactNo"));
         ContractExpireTC.setCellValueFactory(new PropertyValueFactory<Service, String>("contractTo"));
         ServiceTypeTC.setCellValueFactory(new PropertyValueFactory<Service, String>("serviceCatago"));
-    loadServiceData();
+        loadServiceData();
+    
+    //--------------------------------------------------------------------------------------------------------------------
+    //Goal_2 initailize
+    idTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, Integer>("id"));
+    nameTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("name"));
+    emailTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("email"));
+    userTypeTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("usertype"));
+    contactNoTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("contNo"));
+    genderTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("gender"));
+    
     }
 
     private void loadServiceData() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("ServiceObjects.bin"))) {
+        File file = new File("ServiceObjects.bin");
+        if (!file.exists()) {
+            try {
+                // Create an empty file if it doesn't exist
+                file.createNewFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                return;
+            }
+        }
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             while (true) {
                 Service s = (Service) ois.readObject();
                 serviceList.add(s);
@@ -321,5 +363,55 @@ public class MaintananceManagerController implements Initializable {
     private void refreshTableOfServiceOnClick(ActionEvent event) {
         tableView.refresh();
     }
+    //---------
+    //Goal 2  |
+    //---------
+
+    @FXML
+    private void LoadButtonG2(ActionEvent event) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("AllUserData.bin"))) {
+            ObservableList<AllUserData> userDataList = FXCollections.observableArrayList();
+
+            // Read the data from the file until the end of file (EOF) is reached
+            try {
+                while (true) {
+                    AllUserData userData = (AllUserData) ois.readObject();
+                    userDataList.add(userData);
+                }
+            } catch (EOFException e) {
+                // End of file reached, do nothing
+            }
+
+            // Set the items of the TableView to the populated list
+            UserdetailsTableView.setItems(userDataList);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            // Handle exception (e.g., show error message)
+        }
+
+    }
+
+    @FXML
+    private void deleteButtonG2(ActionEvent event) {
+    }
+
+    @FXML
+    private void logoutButton(ActionEvent event) {
+        
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Login.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+     
+    }
+    }
+    
+    
 }
 
