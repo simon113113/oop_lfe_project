@@ -30,6 +30,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -111,10 +112,13 @@ public class MaintananceManagerController implements Initializable {
     private TableColumn<AllUserData, String> emailTC_G2;
     @FXML
     private TableColumn<AllUserData, String> userTypeTC_G2;
-    @FXML
     private TableColumn<AllUserData, String> contactNoTC_G2;
     @FXML
     private TableColumn<AllUserData, String> genderTC_G2;
+    @FXML
+    private TextField SearchLabel;
+    @FXML
+    private TextArea userDetailsTextArea;
     
     
 
@@ -140,36 +144,36 @@ public class MaintananceManagerController implements Initializable {
     nameTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("name"));
     emailTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("email"));
     userTypeTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("usertype"));
-    contactNoTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("contNo"));
     genderTC_G2.setCellValueFactory(new PropertyValueFactory<AllUserData, String>("gender"));
     
     }
-
-    private void loadServiceData() {
-        File file = new File("ServiceObjects.bin");
-        if (!file.exists()) {
-            try {
-                // Create an empty file if it doesn't exist
-                file.createNewFile();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                return;
-            }
-        }
-
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-            while (true) {
-                Service s = (Service) ois.readObject();
-                serviceList.add(s);
-            }
-        } catch (EOFException e) {
-            // End of file reached, do nothing
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        tableView.setItems(serviceList);
-    }
     
+    private void loadServiceData() {
+        serviceList.clear(); // Clear the existing data
+
+    File file = new File("ServiceObjects.bin");
+    if (!file.exists()) {
+        try {
+            // Create an empty file if it doesn't exist
+            file.createNewFile();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return;
+        }
+    }
+
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Service s = (Service) ois.readObject();
+            serviceList.add(s);
+        }
+    } catch (EOFException e) {
+        // End of file reached, do nothing
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    tableView.setItems(serviceList);
+    }
     
     @FXML
     private void SceneChange(ActionEvent event) {
@@ -276,124 +280,82 @@ public class MaintananceManagerController implements Initializable {
 
     @FXML
     private void addButton(ActionEvent event) {
-        // Check if all data fields are entered or not
         if (serviceNameTF.getText().isEmpty() || Contactno.getText().isEmpty()
-                || contractFrom.getValue() == null || contractTo.getValue() == null
-                || Catego.getValue().isEmpty()) {
+            || contractFrom.getValue() == null || contractTo.getValue() == null
+            || Catego.getValue().isEmpty()) {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Incomplete Data");
-            alert.setHeaderText(null);
-            alert.setContentText("Please enter all required fields");
-            alert.showAndWait();
-            return;
-        }
-
-        ObservableList<Service> servicelist = FXCollections.observableArrayList();
-        ObjectInputStream ois = null;
-        {
-
-            try {
-                Service s;
-
-                ois = new ObjectInputStream(new FileInputStream("ServiceObjects.bin"));
-
-                while (true) {
-                    s = (Service) ois.readObject();
-                    servicelist.add(s);
-                    tableView.setItems(servicelist);
-                }
-
-            } catch (RuntimeException e) {
-                e.printStackTrace();
-
-            } catch (Exception ex) {
-                try {
-                    if (ois != null) {
-                        ois.close();
-                    }
-                } catch (IOException ex1) {
-                }
-            }
-
-        }
-        File f = null;
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-
-        try {
-            f = new File("ServiceObjects.bin");
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
-            }
-            Service s = new Service(serviceNameTF.getText(), 
-                    Contactno.getText(), Catego.getValue(),contractFrom.getValue(),
-                    contractTo.getValue()
-            );
-
-            oos.writeObject(s);
-            servicelist.add(s);
-            tableView.setItems(servicelist);
-
-            serviceNameTF.clear();
-            Catego.setValue(null);
-            contractTo.setValue(null);
-            contractFrom.setValue(null);
-            Contactno.clear();
-        } catch (IOException ex) {
-
-            Logger.getLogger(MaintananceManagerController.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.close();
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(MaintananceManagerController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Incomplete Data");
+        alert.setHeaderText(null);
+        alert.setContentText("Please enter all required fields");
+        alert.showAndWait();
+        return;
     }
 
-    @FXML
-    private void refreshTableOfServiceOnClick(ActionEvent event) {
-        tableView.refresh();
+    // Create a new Service object with input data
+    Service newService = new Service(serviceNameTF.getText(),
+            Contactno.getText(), Catego.getValue(), contractFrom.getValue(),
+            contractTo.getValue());
+
+    // Add the new service to the service list
+    serviceList.add(newService);
+
+    // Update the table view
+    tableView.setItems(serviceList);
+
+    // Write the updated service list to the file
+    writeServiceListToFile();
+    
+    // Clear input fields
+    serviceNameTF.clear();
+    Catego.setValue(null);
+    contractTo.setValue(null);
+    contractFrom.setValue(null);
+    Contactno.clear();
+}
+
+private void writeServiceListToFile() {
+    File file = new File("ServiceObjects.bin");
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+        for (Service service : serviceList) {
+            oos.writeObject(service);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+        // Handle file write error
     }
+}
+    
+
+    
     //---------
     //Goal 2  |
     //---------
 
     @FXML
     private void LoadButtonG2(ActionEvent event) {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("AllUserData.bin"))) {
-            ObservableList<AllUserData> userDataList = FXCollections.observableArrayList();
+         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("AllUserData.bin"))) {
+        ObservableList<AllUserData> userDataList = FXCollections.observableArrayList();
 
-            // Read the data from the file until the end of file (EOF) is reached
-            try {
-                while (true) {
-                    AllUserData userData = (AllUserData) ois.readObject();
-                    userDataList.add(userData);
-                }
-            } catch (EOFException e) {
-                // End of file reached, do nothing
+        // Read the data from the file until the end of file (EOF) is reached
+        try {
+            while (true) {
+                AllUserData userData = (AllUserData) ois.readObject();
+                userDataList.add(userData);
             }
-
-            // Set the items of the TableView to the populated list
-            UserdetailsTableView.setItems(userDataList);
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            // Handle exception (e.g., show error message)
+        } catch (EOFException e) {
+            // End of file reached, do nothing
         }
 
+        // Set the items of the TableView to the populated list
+        UserdetailsTableView.setItems(userDataList);
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+        // Handle exception (e.g., show error message)
     }
 
-    @FXML
-    private void deleteButtonG2(ActionEvent event) {
     }
+
 
     @FXML
     private void logoutButton(ActionEvent event) {
@@ -409,6 +371,55 @@ public class MaintananceManagerController implements Initializable {
     } catch (IOException ex) {
         ex.printStackTrace();
      
+    }
+    }
+
+    @FXML
+    private void SearchButtonG2(ActionEvent event) {
+    }
+
+    @FXML
+    private void viewDetailsButtonG2(ActionEvent event) {
+        AllUserData selectedUser = UserdetailsTableView.getSelectionModel().getSelectedItem();
+    
+    // Check if a user is selected
+    if (selectedUser != null) {
+        // Format the user details
+        String userDetails = String.format("ID: %d\nName: %s\nPassword: %s\nContact: %s",
+                selectedUser.getId(),
+                selectedUser.getName(),
+                selectedUser.getPassword(),
+                selectedUser.getContNo());
+
+        // Display the user details in userDetailsTextArea
+        userDetailsTextArea.setText(userDetails);
+    } else {
+        // If no user is selected, display a message
+        userDetailsTextArea.setText("Please select a user to view details.");
+    }
+    }
+
+    @FXML
+    private void DeleteServiceOnClick(ActionEvent event) {
+        Service selectedService = tableView.getSelectionModel().getSelectedItem();
+    
+    // Check if a service is selected
+    if (selectedService != null) {
+        // Remove the selected service from the list
+        serviceList.remove(selectedService);
+        
+        // Update the table view
+        tableView.setItems(serviceList);
+        
+        // Write the updated service list to the file
+        writeServiceListToFile();
+    } else {
+        // If no service is selected, display a message
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("No Service Selected");
+        alert.setHeaderText(null);
+        alert.setContentText("Please select a service to delete.");
+        alert.showAndWait();
     }
     }
     
