@@ -179,7 +179,7 @@ public class LoginController implements Initializable {
                         // Check if username and password match
                         if (manager.getUsername().equals(username) && manager.getPassword().equals(password)) {
                             //if match, load the MaintananceManager.fxml
-                            Parent root = FXMLLoader.load(getClass().getResource("/tahmina/VenueIncharge.fxml"));
+                            Parent root = FXMLLoader.load(getClass().getResource("/tahmina/Venueincharge.fxml"));
                             Scene scene = new Scene(root);
                             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             stage.setScene(scene);

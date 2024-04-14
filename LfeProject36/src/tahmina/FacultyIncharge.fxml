@@ -5,7 +5,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="418.0" prefWidth="504.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.FacultyInchargeController">
    <children>
       <Text layoutX="182.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty Incharge">

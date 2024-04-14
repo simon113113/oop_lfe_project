@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="536.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.AssessmentandEvaluationController">
    <children>
-      <Label layoutX="65.0" layoutY="57.0" style="-fx-background-color: lavender;" text="Category" />
+      <Label fx:id="categoryTF" layoutX="65.0" layoutY="57.0" style="-fx-background-color: lavender;" text="Category" />
       <Label layoutX="77.0" layoutY="118.0" style="-fx-background-color: lavender;" text="Date" />
       <ComboBox fx:id="categoryCB" layoutX="144.0" layoutY="53.0" prefWidth="150.0" />
       <ComboBox fx:id="dateCB" layoutX="144.0" layoutY="114.0" prefWidth="150.0" />

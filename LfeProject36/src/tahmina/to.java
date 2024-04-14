@@ -8,6 +8,6 @@ package tahmina;
  *
  * @author Admin
  */
-class event {
+class to {
     
 }
