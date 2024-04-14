@@ -21,24 +21,34 @@ import javafx.stage.Stage;
  *
  * @author Admin
  */
-public class ReviewSafetyGuidlinesController implements Initializable {
+public class RulesandGuidelinesController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     Parent parent = null;
+         Parent parent = null;
 try {
     parent = FXMLLoader.load(getClass().getResource("/tahmina/VenueIncharge.fxml"));
 } catch (IOException ex) {
-    Logger.getLogger(RulesandGuidelinesController.class.getName()).log(Level.SEVERE, null, ex);
+    Logger.getLogger(YourCurrentClassName.class.getName()).log(Level.SEVERE, null, ex);
 }
 Scene scene = new Scene(parent);
-Stage window = new Stage(); // Create a new stage
+Stage window = (Stage) event.getSource().getScene().getWindow();
 window.setScene(scene);
 window.show();
 
     }    
+
+    private static class event {
+
+        private static Object getSource() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public event() {
+        }
+    }
     
 }

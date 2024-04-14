@@ -23,7 +23,7 @@ public class main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/tahmina/FacultyIncharge.fxml"));
         
         Scene scene = new Scene(root);
         

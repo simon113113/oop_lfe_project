@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="418.0" prefWidth="504.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.FacultyInchargeController">
+   <children>
+      <Text layoutX="182.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty Incharge">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="174.0" layoutY="76.0" mnemonicParsing="false" onAction="#tripanalyticsClickedButton" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: lavender;" text="Trip Analytics" />
+      <Button layoutX="174.0" layoutY="112.0" mnemonicParsing="false" onAction="#activitiesfeedbackClickedButton" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: lavender;" text="Activities Feedback" />
+      <Button layoutX="174.0" layoutY="149.0" mnemonicParsing="false" onAction="#assessmentClickedButton" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: lavender;" text="Assessment and Evaluation" />
+      <Button layoutX="174.0" layoutY="188.0" mnemonicParsing="false" onAction="#safetyClickedButton" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: lavender;" text="Safety Guidelines" />
+      <Button layoutX="174.0" layoutY="226.0" mnemonicParsing="false" onAction="#studentinfoClickedInfo" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: lavender;" text="Student Info" />
+      <Button layoutX="174.0" layoutY="264.0" mnemonicParsing="false" onAction="#facultyinfoClickedButton" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: lavender;" text="Faculty Info" />
+      <Button layoutX="174.0" layoutY="298.0" mnemonicParsing="false" onAction="#complainClickedButton" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: lavender;" text="Complain and Feedback" />
+      <Button layoutX="174.0" layoutY="335.0" mnemonicParsing="false" onAction="#rulesClickedButton" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: lavender;" text="Rules and Guidelines" />
+      <Button layoutX="209.0" layoutY="379.0" mnemonicParsing="false" onAction="#homeClickedButton" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: lavender;" text="Home" />
+   </children>
+</AnchorPane>
