@@ -14,8 +14,6 @@ import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -104,6 +102,7 @@ public class MaintananceManagerController implements Initializable {
     @FXML
     private ComboBox<String> Catego;
     private ObservableList<Service> serviceList;
+    private ObservableList<Event> eventList;
     @FXML
     private TableView<AllUserData> UserdetailsTableView;
     @FXML
@@ -148,6 +147,7 @@ public class MaintananceManagerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         serviceList = FXCollections.observableArrayList();
+        eventList = FXCollections.observableArrayList();
        Catego.getItems().addAll("Indoor", "Outdoor",
                 "Special");
        
@@ -170,7 +170,9 @@ public class MaintananceManagerController implements Initializable {
            eventDateTC.setCellValueFactory(new PropertyValueFactory<Event, LocalDate>("eventDate"));
            eventGuestNoTC.setCellValueFactory(new PropertyValueFactory<Event, Integer>("noOfPartecipants"));
            eventLocationTC.setCellValueFactory(new PropertyValueFactory<Event, String>("location"));
-           
+           menuTypeComboBoxTF.getItems().addAll("Briani","kacchi","vat");
+           eventLocationComboBox.getItems().addAll("auditorium","field","class");
+           loadeventData();
     }
     
     private void loadServiceData() {
@@ -200,6 +202,32 @@ public class MaintananceManagerController implements Initializable {
     tableView.setItems(serviceList);
     }
     
+    private void loadeventData() {
+        eventList.clear(); 
+
+    File file = new File("eventObjects.bin");
+    if (!file.exists()) {
+        try {
+            
+            file.createNewFile();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return;
+        }
+    }
+
+    try (ObjectInputStream ois1 = new ObjectInputStream(new FileInputStream(file))) {
+        while (true) {
+            Event s = (Event) ois1.readObject();
+            eventList.add(s);
+        }
+    } catch (EOFException e) {
+        
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    eventTabbleView.setItems(eventList);
+    }
     @FXML
     private void SceneChange(ActionEvent event) {
         if (event.getSource() == HomeButton) {
@@ -316,6 +344,7 @@ public class MaintananceManagerController implements Initializable {
         alert.showAndWait();
         return;
     }
+        
 
    
     Service newService = new Service(serviceNameTF.getText(),
@@ -347,7 +376,18 @@ private void writeServiceListToFile() {
         }
     } catch (IOException e) {
         e.printStackTrace();
-        // Handle file write error
+        
+    }
+}
+private void writeEventListToFile() {
+    File file = new File("EventObjects.bin");
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+        for (Event event : eventList) {
+            oos.writeObject(event);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+        
     }
 }
     
@@ -429,18 +469,18 @@ private void writeServiceListToFile() {
     private void DeleteServiceOnClick(ActionEvent event) {
         Service selectedService = tableView.getSelectionModel().getSelectedItem();
     
-    // Check if a service is selected
+    
     if (selectedService != null) {
-        // Remove the selected service from the list
+        
         serviceList.remove(selectedService);
         
-        // Update the table view
+        
         tableView.setItems(serviceList);
         
-        // Write the updated service list to the file
+       
         writeServiceListToFile();
     } else {
-        // If no service is selected, display a message
+        
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("No Service Selected");
         alert.setHeaderText(null);
@@ -451,12 +491,62 @@ private void writeServiceListToFile() {
 
     @FXML
     private void createEventButtonOnClick(ActionEvent event) {
+        if (nameEventTF.getText().isEmpty() || nbOfParecipantsTF.getText().isEmpty()
+            || eventDate.getValue() == null ||menuTypeComboBoxTF.getValue().isEmpty()
+            || eventLocationComboBox.getValue().isEmpty()) {
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Incomplete Data");
+        alert.setHeaderText(null);
+        alert.setContentText("Please enter all required fields");
+        alert.showAndWait();
+        return;
+    }
+        
+
+   
+    Event newEvent = new Event(nameEventTF.getText(), menuTypeComboBoxTF.getValue(),eventLocationComboBox.getValue(),Integer.parseInt(nbOfParecipantsTF.getText()),eventDate.getValue());
+
+   
+    eventList.add(newEvent);
+
+    // Update the table view
+    eventTabbleView.setItems(eventList);
+
+    // Write the updated service list to the file
+    writeEventListToFile();
+    
+    // Clear input fields
+    nameEventTF.clear();
+    eventDate.setValue(null);
+    eventLocationComboBox.setValue(null);
+    menuTypeComboBoxTF.setValue(null);
+    nbOfParecipantsTF.clear();
+
     }
 
     @FXML
     private void deleteButtonOnClick(ActionEvent event) {
+        Event selectedEvent = eventTabbleView.getSelectionModel().getSelectedItem();
+    
+    
+    if (selectedEvent != null) {
+        
+        eventList.remove(selectedEvent);
+        
+        
+        eventTabbleView.setItems(eventList);
+        
+       
+        writeEventListToFile();
+    } else {
+        
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("No event Selected");
+        alert.setHeaderText(null);
+        alert.setContentText("Please select a event to delete.");
+        alert.showAndWait();
     }
-    
-    
+    }
 }
 

@@ -105,7 +105,7 @@ public class SignUpSceneController implements Initializable {
         String gender = "";
         RadioButton selectedRadioButton = (RadioButton) genderToggleGroup.getSelectedToggle();
         if (selectedRadioButton != null) {
-            gender = selectedRadioButton.getText(); // This will give you the text of the selected radio button
+            gender = selectedRadioButton.getText(); 
         }
         
          if (userNameTF.getText().isEmpty() || passTF.getText().isEmpty()

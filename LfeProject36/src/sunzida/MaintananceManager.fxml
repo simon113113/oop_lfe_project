@@ -92,7 +92,7 @@
                            </font>
                         </Label>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="serviceScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;" visible="false">
+                  <AnchorPane fx:id="serviceScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;">
                      <children>
                         <Label alignment="CENTER" layoutX="197.0" prefHeight="51.0" prefWidth="150.0" text="Services">
                            <font>

@@ -4,13 +4,14 @@
  */
 package sunzida;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author Asus
  */
-public class Event {
+public class Event implements Serializable {
    String eventName,foodMenuType,location;
    int  noOfPartecipants;
    LocalDate eventDate;
