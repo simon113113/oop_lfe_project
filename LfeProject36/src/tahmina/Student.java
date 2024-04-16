@@ -13,17 +13,14 @@ package tahmina;
 public class Student {
     private String studentId;
     private String studentName;
-    private String email;
-    private String contact;
+    private String problem;
 
-    public Student(String studentId, String studentName, String email, String contact) {
+    public Student(String studentId, String studentName, String problem) {
         this.studentId = studentId;
         this.studentName = studentName;
-        this.email = email;
-        this.contact = contact;
+        this.problem = problem;
     }
 
-    // Getters and setters for the properties
     public String getStudentId() {
         return studentId;
     }
@@ -40,19 +37,21 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getProblem() {
+        return problem;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setProblem(String problem) {
+        this.problem = problem;
     }
 
-    public String getContact() {
-        return contact;
+    String getEmail() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    String getContact() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
 }
+   

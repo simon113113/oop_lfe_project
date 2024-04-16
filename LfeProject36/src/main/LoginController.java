@@ -28,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sunzida.MaintananceManager;
+import tahmina.VenueIncharge;
 
 /**
  * FXML Controller class
@@ -164,50 +165,55 @@ public class LoginController implements Initializable {
             PassError.setText("Invalid");
         }
            //----------------------------
-        //For User Vanue Incharge |
+        //For User Vnue Incharge |
         //----------------------------
         if ("Venue Incharge".equals(userType)) {
             //Load the file
-            File employeeFile = new File("VenueIncharge.bin");
+           // Load the file
+File employeeFile = new File("VenueInchargeList.bin");
 
-            // Check if the file exists
-            if (employeeFile.exists()) {
-                try (FileInputStream fis = new FileInputStream(employeeFile); ObjectInputStream ois = new ObjectInputStream(fis)) {
-                    boolean found = false;
-                    while (true) {
-                        MaintananceManager manager = (MaintananceManager) ois.readObject();
-                        // Check if username and password match
-                        if (manager.getUsername().equals(username) && manager.getPassword().equals(password)) {
-                            //if match, load the MaintananceManager.fxml
-                            Parent root = FXMLLoader.load(getClass().getResource("/tahmina/Venueincharge.fxml"));
-                            Scene scene = new Scene(root);
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            stage.setScene(scene);
-                            stage.show();
-                            return;
-                        } //check if username matches
-                        else if (manager.getUsername().equals(username)) {
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (!found) {
-                        UserNameError.setText("Invalid username.");
-
-                        return;
-                    }
-                } catch (EOFException e) {
-                    //no match found
-                    System.out.println("No matching user found.");
-                } catch (Exception e) {
-                    e.printStackTrace();
+// Check if the file exists
+if (employeeFile.exists()) {
+    try (FileInputStream fis = new FileInputStream(employeeFile); ObjectInputStream ois = new ObjectInputStream(fis)) {
+        boolean found = false;
+        // Loop through the objects in the file
+        while (true) {
+            Object obj = ois.readObject();
+            // Check if the object is of type VenueIncharge
+            if (obj instanceof VenueIncharge) {
+                VenueIncharge manager = (VenueIncharge) obj;
+                // Check if username and password match
+                if (manager.getUsername().equals(username) && manager.getPassword().equals(password)) {
+                    // Load the VenueIncharge.fxml
+                    Parent root = FXMLLoader.load(getClass().getResource("/tahmina/VenueIncharge.fxml"));
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.show();
+                    return;
+                } else if (manager.getUsername().equals(username)) {
+                    found = true;
+                    break;
                 }
-            } else {
-                //if the file does not exist
-                System.out.println("Employee file does not exist.");
             }
-            UserNameError.setText("Invalid");
-            PassError.setText("Invalid");
+        }
+        if (!found) {
+            UserNameError.setText("Invalid username.");
+            return;
+        }
+    } catch (EOFException e) {
+        // End of file reached
+        System.out.println("No matching user found.");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+} else {
+    // File does not exist
+    System.out.println("Employee file does not exist.");
+}
+UserNameError.setText("Invalid");
+PassError.setText("Invalid");
+
         }
 
     

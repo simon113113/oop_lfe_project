@@ -51,9 +51,8 @@ public class VenueInchargeController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void stumanagementButtonClicked(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/tahmina/StudentManagement.fxml"));
+         Parent parent = FXMLLoader.load(getClass().getResource("/tahmina/StudentManagement.fxml"));
     Scene scene = new Scene(parent);
     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
     window.setScene(scene);
@@ -126,6 +125,15 @@ public class VenueInchargeController implements Initializable {
     @FXML
     private void homeButtonClicked(ActionEvent event) throws IOException {
             Parent parent = FXMLLoader.load(getClass().getResource("/main/Login.fxml"));
+    Scene scene = new Scene(parent);
+    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    window.setScene(scene);
+    window.show();
+    }
+
+    @FXML
+    private void stumanagementClickedButton(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/tahmina/StudentManagement.fxml"));
     Scene scene = new Scene(parent);
     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
     window.setScene(scene);
