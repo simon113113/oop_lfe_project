@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="536.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <Label layoutX="93.0" layoutY="83.0" text="Category" />
+      <Label layoutX="46.0" layoutY="213.0" prefHeight="183.0" prefWidth="441.0" style="-fx-background-color: lavender;" />
+      <ComboBox fx:id="categoryCB" layoutX="194.0" layoutY="79.0" prefWidth="150.0" />
+      <Button layoutX="232.0" layoutY="155.0" mnemonicParsing="false" onAction="#seedetailsClickedButton" text="See Details" />
+      <Button layoutX="202.0" layoutY="454.0" mnemonicParsing="false" onAction="#returntidashboardClickedButton" text="Return To Dashboard" />
+   </children>
+</AnchorPane>
