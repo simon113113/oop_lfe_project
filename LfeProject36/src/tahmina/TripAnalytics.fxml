@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.TripAnalyticsController">
+   <children>
+      <Label layoutX="84.0" layoutY="59.0" text="Venue" />
+      <Label layoutX="84.0" layoutY="99.0" text="Semester" />
+      <Button layoutX="216.0" layoutY="448.0" mnemonicParsing="false" onAction="#returntodashboardClickedButton" text="Return To Dashboard" />
+      <PieChart layoutX="137.0" layoutY="230.0" prefHeight="171.0" prefWidth="262.0" style="-fx-background-color: lavender;" />
+      <Button layoutX="216.0" layoutY="168.0" mnemonicParsing="false" onAction="#showdetailsClickedButton" text="Show Details" />
+      <ComboBox fx:id="venueCB" layoutX="156.0" layoutY="55.0" prefWidth="150.0" />
+      <ComboBox fx:id="semesterCB" layoutX="156.0" layoutY="95.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
