@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="536.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.AssessmentandEvaluationController">
+   <children>
+      <Label layoutX="65.0" layoutY="57.0" style="-fx-background-color: lavender;" text="Category" />
+      <Label layoutX="77.0" layoutY="118.0" style="-fx-background-color: lavender;" text="Date" />
+      <ComboBox fx:id="categoryCB" layoutX="144.0" layoutY="53.0" prefWidth="150.0" />
+      <ComboBox fx:id="dateCB" layoutX="144.0" layoutY="114.0" prefWidth="150.0" />
+      <Button layoutX="204.0" layoutY="418.0" mnemonicParsing="false" onAction="#returntodashboardClickedButton" style="-fx-background-color: lavender;" text="Return To Dashboard" />
+      <Button layoutX="177.0" layoutY="165.0" mnemonicParsing="false" onAction="#showdetailsClickedButton" style="-fx-background-color: lavender;" text="Show Details" />
+      <Label layoutX="33.0" layoutY="209.0" prefHeight="146.0" prefWidth="478.0" style="-fx-background-color: lavender;" text="Label" />
+   </children>
+</AnchorPane>
