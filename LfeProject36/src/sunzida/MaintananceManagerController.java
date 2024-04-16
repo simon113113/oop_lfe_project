@@ -28,6 +28,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -113,6 +114,7 @@ public class MaintananceManagerController implements Initializable {
     private TableColumn<AllUserData, String> emailTC_G2;
     @FXML
     private TableColumn<AllUserData, String> userTypeTC_G2;
+    @FXML
     private TableColumn<AllUserData, String> contactNoTC_G2;
     @FXML
     private TableColumn<AllUserData, String> genderTC_G2;
@@ -138,6 +140,24 @@ public class MaintananceManagerController implements Initializable {
     private TableColumn<Event, Integer> eventGuestNoTC;
     @FXML
     private TableColumn<Event, String> eventLocationTC;
+    @FXML
+    private Label complaintTF;
+    @FXML
+    private TableView<Complaint> compTableView;
+    @FXML
+    private TableColumn<Complaint, String> compIdTC;
+    @FXML
+    private TableColumn<Complaint, String> fromTC;
+    @FXML
+    private TableColumn<Complaint, String> dateIssueTC;
+    @FXML
+    private TextArea compDetails;
+    @FXML
+    private Button deleteCompTF;
+    @FXML
+    private Button viewDTF;
+    @FXML
+    private Button loadCompTF;
     
     
 
@@ -354,13 +374,13 @@ public class MaintananceManagerController implements Initializable {
    
     serviceList.add(newService);
 
-    // Update the table view
+    
     tableView.setItems(serviceList);
 
-    // Write the updated service list to the file
+   
     writeServiceListToFile();
     
-    // Clear input fields
+    
     serviceNameTF.clear();
     Catego.setValue(null);
     contractTo.setValue(null);
@@ -547,6 +567,18 @@ private void writeEventListToFile() {
         alert.setContentText("Please select a event to delete.");
         alert.showAndWait();
     }
+    }
+
+    @FXML
+    private void deleteCompButtonOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void veiwDButtonOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void loadCompButtonOnClick(ActionEvent event) {
     }
 }
 

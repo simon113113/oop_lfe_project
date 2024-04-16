@@ -92,7 +92,7 @@
                            </font>
                         </Label>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="serviceScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;">
+                  <AnchorPane fx:id="serviceScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;" visible="false">
                      <children>
                         <Label alignment="CENTER" layoutX="197.0" prefHeight="51.0" prefWidth="150.0" text="Services">
                            <font>
@@ -151,7 +151,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="UserDetailsScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;">
+                  <AnchorPane fx:id="UserDetailsScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;" visible="false">
                      <children>
                         <Label alignment="CENTER" layoutX="197.0" prefHeight="51.0" prefWidth="150.0" text="User Details">
                            <font>
@@ -222,41 +222,24 @@
                         </TableView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="compaintAndFeedbackScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;" visible="false">
+                  <AnchorPane fx:id="compaintAndFeedbackScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;">
                      <children>
-                        <Label alignment="CENTER" layoutX="146.0" layoutY="-1.0" prefHeight="51.0" prefWidth="276.0" text="Complaint and Feedback">
+                        <Label fx:id="complaintTF" alignment="CENTER" layoutX="100.0" layoutY="14.0" prefHeight="51.0" prefWidth="276.0" text="Complaint ">
                            <font>
                               <Font name="System Bold" size="23.0" />
                            </font>
                         </Label>
-                        <TableView layoutX="15.0" layoutY="83.0" prefHeight="155.0" prefWidth="265.0">
+                        <TableView fx:id="compTableView" layoutX="15.0" layoutY="83.0" prefHeight="155.0" prefWidth="411.0">
                            <columns>
-                              <TableColumn prefWidth="84.0" text="Complain ID" />
-                              <TableColumn prefWidth="91.0" text="From" />
-                              <TableColumn prefWidth="89.0" text="Date Issued" />
+                              <TableColumn fx:id="compIdTC" prefWidth="153.33338928222656" text="Complain ID" />
+                              <TableColumn fx:id="fromTC" prefWidth="123.6666259765625" text="From" />
+                              <TableColumn fx:id="dateIssueTC" prefWidth="131.0" text="Date Issued" />
                            </columns>
                         </TableView>
-                        <Line endX="3.0" endY="84.0" layoutX="285.0" layoutY="156.0" startX="3.0" startY="-73.0" />
-                        <TableView layoutX="295.0" layoutY="83.0" prefHeight="155.0" prefWidth="265.0">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="Feedback" />
-                              <TableColumn prefWidth="99.0" text="From" />
-                              <TableColumn prefWidth="90.0" text="Date Issued" />
-                           </columns>
-                        </TableView>
-                        <TextArea layoutX="17.0" layoutY="295.0" prefHeight="171.0" prefWidth="541.0" promptText="Details" />
-                        <Label layoutX="295.0" layoutY="63.0" text="Feedback">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="15.0" layoutY="63.0" text="Complaint">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="233.0" layoutY="251.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Refresh" />
-                        <Button layoutX="239.0" layoutY="466.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="View Details" />
+                        <TextArea fx:id="compDetails" layoutX="19.0" layoutY="287.0" prefHeight="154.0" prefWidth="464.0" promptText="complaint Details" />
+                        <Button fx:id="deleteCompTF" layoutX="19.0" layoutY="249.0" mnemonicParsing="false" onAction="#deleteCompButtonOnClick" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Delate" />
+                        <Button fx:id="viewDTF" layoutX="26.0" layoutY="454.0" mnemonicParsing="false" onAction="#veiwDButtonOnClick" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="View Details" />
+                        <Button fx:id="loadCompTF" layoutX="148.0" layoutY="249.0" mnemonicParsing="false" onAction="#loadCompButtonOnClick" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: lavender; -fx-border-color: grey;" text="Load" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="employeeManagementScene" prefHeight="525.0" prefWidth="566.0" style="-fx-background-color: D3D3D3;" visible="false">

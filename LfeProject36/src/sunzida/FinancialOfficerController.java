@@ -6,16 +6,20 @@ package sunzida;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -30,102 +34,70 @@ public class FinancialOfficerController implements Initializable {
     @FXML
     private Button HomeButton;
     @FXML
-    private Button ServiceButton;
+    private Button genarateFRButton;
     @FXML
-    private Button UserDetailsButton;
+    private Button reviewApplicationButton;
     @FXML
-    private Button EmployeeManageButton;
+    private Button settleInvoiceDButton;
     @FXML
-    private Button GenerateReportButton;
+    private Button invoiceManagementButton;
     @FXML
-    private Button FeedBackAndComplaintButton;
+    private Button bankReconciliiationButton;
     @FXML
-    private Button TransportationButton;
+    private Button generatePRButton;
     @FXML
-    private Button CreateEventButton;
+    private Button paymentApprovalButton;
     @FXML
-    private Button SendNoticeButton;
+    private Button budgetaryControlButton;
+    @FXML
+    private AnchorPane reviewApp;
+    @FXML
+    private AnchorPane settleInvoiceDis;
+    @FXML
+    private AnchorPane invoiceManagement;
+    @FXML
+    private AnchorPane BankReconciliation;
+    @FXML
+    private AnchorPane genaratePayRe;
+    @FXML
+    private AnchorPane payApproval;
+    @FXML
+    private AnchorPane budgetaryControl;
+    @FXML
+    private TableView<Report> reportTableView;
+    @FXML
+    private TableColumn<Report, String> reportNameTC;
+    @FXML
+    private TableColumn<Report, String> contactRepoTC;
+    @FXML
+    private TableColumn<Report, String> conExpTC;
+    @FXML
+    private TableColumn<Report, String> reportTypeTC;
+    @FXML
+    private AnchorPane genarateFinancialReport;
+    @FXML
+    private ComboBox<String> repoCatTF;
+    
+    private ObservableList<Report> reportList;
+    @FXML
+    private DatePicker ConFrRepoTF;
+    @FXML
+    private DatePicker conToReportTF;
     @FXML
     private AnchorPane dashboard;
-    @FXML
-    private AnchorPane serviceScene;
-    @FXML
-    private TextField serviceNameTF;
-    @FXML
-    private TextField Contactno;
-    @FXML
-    private DatePicker contractFrom;
-    @FXML
-    private DatePicker contractTo;
-    @FXML
-    private TableView<?> tableView;
-    @FXML
-    private TableColumn<?, ?> serviceNameTC;
-    @FXML
-    private TableColumn<?, ?> contactNoTC;
-    @FXML
-    private TableColumn<?, ?> ContractExpireTC;
-    @FXML
-    private TableColumn<?, ?> ServiceTypeTC;
-    @FXML
-    private ComboBox<?> Catego;
-    @FXML
-    private AnchorPane UserDetailsScene;
-    @FXML
-    private TableView<?> UserdetailsTableView;
-    @FXML
-    private TableColumn<?, ?> idTC_G2;
-    @FXML
-    private TableColumn<?, ?> nameTC_G2;
-    @FXML
-    private TableColumn<?, ?> emailTC_G2;
-    @FXML
-    private TableColumn<?, ?> userTypeTC_G2;
-    @FXML
-    private TableColumn<?, ?> genderTC_G2;
-    @FXML
-    private TextField SearchLabel;
-    @FXML
-    private TextArea userDetailsTextArea;
-    @FXML
-    private AnchorPane eventManagementScene;
-    @FXML
-    private TextField nameEventTF;
-    @FXML
-    private ComboBox<?> menuTypeComboBoxTF;
-    @FXML
-    private DatePicker eventDate;
-    @FXML
-    private TextField nbOfParecipantsTF;
-    @FXML
-    private ComboBox<?> eventLocationComboBox;
-    @FXML
-    private TableView<?> eventTabbleView;
-    @FXML
-    private TableColumn<?, ?> eventNameTC;
-    @FXML
-    private TableColumn<?, ?> eventDateTC;
-    @FXML
-    private TableColumn<?, ?> eventGuestNoTC;
-    @FXML
-    private TableColumn<?, ?> eventLocationTC;
-    @FXML
-    private AnchorPane compaintAndFeedbackScene;
-    @FXML
-    private AnchorPane employeeManagementScene;
-    @FXML
-    private AnchorPane generateReport;
-    @FXML
-    private AnchorPane sendUserNotice;
-    @FXML
-    private AnchorPane transportationScene;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+//      reportList = FXCollections.observableArrayList();
+//        repoCatTF.getItems().addAll("complicated", "urgent");
+//        // TODO
+//        reportNameTC.setCellValueFactory(new PropertyValueFactory<Service, String>("reportName"));
+//        contactRepoTC.setCellValueFactory(new PropertyValueFactory<Service, String>("RepoContact"));
+//        conExpTC.setCellValueFactory(new PropertyValueFactory<Service, String>("contractTo"));
+//        reportTypeTC.setCellValueFactory(new PropertyValueFactory<Service, String>("repoCat"));
     }    
 
     @FXML
@@ -136,32 +108,5 @@ public class FinancialOfficerController implements Initializable {
     private void SceneChange(ActionEvent event) {
     }
 
-    @FXML
-    private void addButton(ActionEvent event) {
-    }
-
-    @FXML
-    private void DeleteServiceOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void LoadButtonG2(ActionEvent event) {
-    }
-
-    @FXML
-    private void SearchButtonG2(ActionEvent event) {
-    }
-
-    @FXML
-    private void viewDetailsButtonG2(ActionEvent event) {
-    }
-
-    @FXML
-    private void createEventButtonOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void deleteButtonOnClick(ActionEvent event) {
-    }
     
 }
