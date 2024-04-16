@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="LfeProject36.jar" size="606305" download="eager" />
+    <jar href="LfeProject36.jar" size="611838" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="main.main"  name="LfeProject36" />
   <update check="always"/>
