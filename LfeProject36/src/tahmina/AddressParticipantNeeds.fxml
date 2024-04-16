@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="536.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.AddressParticipantNeedsController">
@@ -15,16 +14,16 @@
       <Label layoutX="24.0" layoutY="88.0" style="-fx-background-color: lavender;" text="Problem" />
       <TableView fx:id="tableTV" layoutX="75.0" layoutY="187.0" prefHeight="184.0" prefWidth="400.0" style="-fx-background-color: lavender;">
         <columns>
-          <TableColumn fx:id="stuidTC" prefWidth="65.0" text="Stu ID" />
-          <TableColumn fx:id="stunameTC" prefWidth="108.0" text="Stu Name" />
-            <TableColumn fx:id="problemTC" prefWidth="84.0" text="Problem" />
-            <TableColumn fx:id="makereportTC" prefWidth="142.0" text="Make Report" />
+          <TableColumn fx:id="stuidTC" prefWidth="85.0" text="Stu ID" />
+          <TableColumn fx:id="stunameTC" prefWidth="130.0" text="Stu Name" />
+            <TableColumn fx:id="problemTC" prefWidth="184.0" text="Problem" />
         </columns>
       </TableView>
       <Button layoutX="376.0" layoutY="84.0" mnemonicParsing="false" onAction="#showtotable3ClickedDashboard" style="-fx-background-color: lavender;" text="Show to Table" />
-      <Button layoutX="202.0" layoutY="442.0" mnemonicParsing="false" onAction="#retuendashboardClickedDashboard" style="-fx-background-color: lavender;" text="Return To Dashboard" />
+      <Button layoutX="202.0" layoutY="442.0" mnemonicParsing="false" onAction="#retuendashboardClickedButton" style="-fx-background-color: lavender;" text="Return To Dashboard" />
       <ComboBox fx:id="stuidCB" layoutX="100.0" layoutY="42.0" prefWidth="150.0" />
-      <TextField fx:id="stunameTF" layoutX="367.0" layoutY="42.0" />
-      <TextField fx:id="prbTF" layoutX="101.0" layoutY="84.0" />
+      <ComboBox fx:id="problemCB" layoutX="100.0" layoutY="84.0" prefWidth="150.0" />
+      <ComboBox fx:id="studentnameCB" layoutX="363.0" layoutY="42.0" prefWidth="150.0" />
+      <Button layoutX="204.0" layoutY="138.0" mnemonicParsing="false" onAction="#addtotableClickedButton" style="-fx-background-color: lavender;" text="Add to Table" />
    </children>
 </AnchorPane>

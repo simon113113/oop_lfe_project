@@ -4,9 +4,17 @@
  */
 package tahmina;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -20,7 +28,17 @@ public class ReviewSafetyGuidlinesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+     Parent parent = null;
+try {
+    parent = FXMLLoader.load(getClass().getResource("/tahmina/VenueIncharge.fxml"));
+} catch (IOException ex) {
+    Logger.getLogger(RulesandGuidelinesController.class.getName()).log(Level.SEVERE, null, ex);
+}
+Scene scene = new Scene(parent);
+Stage window = new Stage(); // Create a new stage
+window.setScene(scene);
+window.show();
+
     }    
     
 }

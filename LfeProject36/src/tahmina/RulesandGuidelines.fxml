@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.RulesandGuidelinesController">
+   <children>
+      <Label fx:id="ulesTF" layoutX="77.0" layoutY="81.0" style="-fx-background-color: lavender;" text="Rules" />
+      <Label fx:id="labelL" layoutX="109.0" layoutY="159.0" prefHeight="163.0" prefWidth="376.0" style="-fx-background-color: lavender;" text="Label" />
+      <Button layoutX="361.0" layoutY="77.0" mnemonicParsing="false" onAction="#submitClickedButton" style="-fx-background-color: lavender;" text="Submit" />
+      <Button layoutX="259.0" layoutY="348.0" mnemonicParsing="false" onAction="#returntodashboardClickedbutton" style="-fx-background-color: lavender;" text="Return To Dashboard" />
+      <ComboBox fx:id="rulesCB" layoutX="150.0" layoutY="77.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

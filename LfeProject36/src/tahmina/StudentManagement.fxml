@@ -7,21 +7,20 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.StudentManagementController">
+<AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="536.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.StudentManagementController">
    <children>
-      <Label layoutX="57.0" layoutY="63.0" text="Student ID" />
-      <TableView fx:id="stuTV" layoutX="25.0" layoutY="180.0" prefHeight="230.0" prefWidth="497.0">
+      <Label layoutX="38.0" layoutY="63.0" style="-fx-background-color: lavender;" text="Venue" />
+      <TableView fx:id="studentsTV" layoutX="11.0" layoutY="131.0" prefHeight="311.0" prefWidth="519.0" style="-fx-background-color: lavender;">
         <columns>
-          <TableColumn fx:id="stuidTC" prefWidth="60.0" text="Stu ID" />
-          <TableColumn fx:id="stunameTC" prefWidth="86.0" text="Stu Name" />
-            <TableColumn fx:id="deptTC" prefWidth="74.0" text="Dept" />
-            <TableColumn fx:id="semestertc" prefWidth="90.0" text="Semester" />
-            <TableColumn fx:id="emailTC" prefWidth="77.0" text="E-mail" />
-            <TableColumn fx:id="contactTC" prefWidth="109.0" text="Contact" />
+          <TableColumn fx:id="stuidTC" prefWidth="98.0" text="Stu ID" />
+          <TableColumn fx:id="stunameTC" prefWidth="134.0" text="Stu Name" />
+            <TableColumn fx:id="emailTC" prefWidth="102.0" text="Email" />
+            <TableColumn fx:id="contactTC" prefWidth="184.0" text="Contact" />
         </columns>
       </TableView>
-      <ComboBox fx:id="stuidCB" layoutX="138.0" layoutY="59.0" prefWidth="150.0" />
-      <Button layoutX="199.0" layoutY="114.0" mnemonicParsing="false" onAction="#submitClickedButton" text="Submit" />
-      <Button layoutX="213.0" layoutY="436.0" mnemonicParsing="false" onAction="#returntodashboardClickedButton" text="Return To Dashboard" />
+      <ComboBox fx:id="venueCB" layoutX="120.0" layoutY="59.0" prefWidth="150.0" />
+      <Button layoutX="195.0" layoutY="457.0" mnemonicParsing="false" onAction="#returntodashboardClickedButton" style="-fx-background-color: lavender;" text="Return To Dashboard" />
+      <Label layoutX="57.0" layoutY="105.0" style="-fx-background-color: lavender;" />
+      <Button layoutX="356.0" layoutY="59.0" mnemonicParsing="false" onAction="#showtotableClickedButton" style="-fx-background-color: lavender;" text="Show to Table" />
    </children>
 </AnchorPane>

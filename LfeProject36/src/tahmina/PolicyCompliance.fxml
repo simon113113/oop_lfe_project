@@ -5,13 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tahmina.PolicyComplianceController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.PolicyComplianceController">
    <children>
       <Label layoutX="69.0" layoutY="70.0" text="Policy" />
-      <Label layoutX="106.0" layoutY="137.0" prefHeight="146.0" prefWidth="376.0" style="-fx-background-color: lavender;" text="Label" />
+      <Label fx:id="policyDetailsLabel" layoutX="64.0" layoutY="137.0" prefHeight="146.0" prefWidth="434.0" style="-fx-background-color: lavender;" text="policyDetailsLabel" />
       <Button layoutX="401.0" layoutY="66.0" mnemonicParsing="false" onAction="#submitClickedButton" text="Submit" />
-      <Button layoutX="248.0" layoutY="309.0" mnemonicParsing="false" onAction="#returntohomeClickedButton" text="Return To Home" />
+      <Button layoutX="242.0" layoutY="316.0" mnemonicParsing="false" onAction="#returntodashboardClickedButton" text="Return To Dashboard" />
       <ComboBox fx:id="policyCB" layoutX="144.0" layoutY="67.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

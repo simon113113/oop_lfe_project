@@ -4,14 +4,21 @@
  */
 package tahmina;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -19,38 +26,76 @@ import javafx.scene.control.TableView;
  * @author Admin
  */
 public class StudentManagementController implements Initializable {
+    java.util.ArrayList<Management> mangList; // Fixed the type of mangList
 
     @FXML
-    private TableView<?> stuTV;
+    private TableView<Management> studentsTV;
     @FXML
-    private TableColumn<?, ?> stuidTC;
+    private TableColumn<Management, String> stuidTC;
     @FXML
-    private TableColumn<?, ?> stunameTC;
+    private TableColumn<Management, String> stunameTC;
     @FXML
-    private TableColumn<?, ?> deptTC;
+    private TableColumn<Management, String> emailTC;
     @FXML
-    private TableColumn<?, ?> semestertc;
+    private TableColumn<Management, String> contactTC;
+    private ComboBox<String> stuidCB;
+    private ComboBox<String> emailCB;
+    private ComboBox<String> contactCB;
+    private ComboBox<String> stunameCB; // Fixed the type of stunameCB
     @FXML
-    private TableColumn<?, ?> emailTC;
-    @FXML
-    private TableColumn<?, ?> contactTC;
-    @FXML
-    private ComboBox<?> stuidCB;
+    private ComboBox<String> venueCB;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        stuidCB.getItems().addAll("12345", "13245", "12435");
+        stunameCB.getItems().addAll("MIli Rahman", "Md Limon", "Fatema Hossain"); // Fixed the items for stunameCB
+        emailCB.getItems().addAll("MIli@gmail.com", "Limon@gmail.com", "Fatema@gmail.com");
+        contactCB.getItems().addAll("01912345678", "01812345678", "01712345678");
+        mangList = new java.util.ArrayList<Management>();
+        stuidTC.setCellValueFactory(new PropertyValueFactory<Management, String>("studentId"));
+        stunameTC.setCellValueFactory(new PropertyValueFactory<Management, String>("stuName"));
+        emailTC.setCellValueFactory(new PropertyValueFactory<Management, String>("email"));
+        contactTC.setCellValueFactory(new PropertyValueFactory<Management, String>("contact"));
         // TODO
     }    
 
-    @FXML
-    private void submitClickedButton(ActionEvent event) {
+    private void addtotableClickedButton(ActionEvent event) {
+       mangList.add(new Management(
+                stuidCB.getValue(), stunameCB.getValue(),
+                emailCB.getValue(),
+                contactCB.getValue()));
+    }
+
+    
+   
+   
+
+
+     private void showtotable3ClickedDashboard(ActionEvent event) {
+        for(Management s: mangList) {
+            studentsTV.getItems().add(s);
+        }
     }
 
     @FXML
-    private void returntodashboardClickedButton(ActionEvent event) {
+    private void returntodashboardClickedButton(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("/tahmina/VenueIncharge.fxml"));
+        Scene scene = new Scene(parent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
+
+    @FXML
+    private void showtotableClickedButton(ActionEvent event) {
+        for(Management s: mangList) {
+            studentsTV.getItems().add(s);
+    }
+
     
-}
+    
+    
+}}

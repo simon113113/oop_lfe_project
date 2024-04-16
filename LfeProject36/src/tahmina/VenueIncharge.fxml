@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="474.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tahmina.VenueInchargeController">
+   <children>
+      <Text layoutX="158.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Venue Incharge">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="StudentManagement" layoutX="126.0" layoutY="92.0" mnemonicParsing="false" onAction="#stumanagementClickedButton" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: lavender;" text="Student Management" />
+      <Button fx:id="VenueInfo" layoutX="126.0" layoutY="127.0" mnemonicParsing="false" onAction="#venueinfoButtonClicked" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: lavender;" text="Venue Info" />
+      <Button fx:id="StaffSchedule" layoutX="126.0" layoutY="165.0" mnemonicParsing="false" onAction="#staffscheduleButtonClicked" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: lavender;" text="Staff Info" />
+      <Button fx:id="AddressParticipantNeeds" layoutX="126.0" layoutY="200.0" mnemonicParsing="false" onAction="#participantneedsButtonClicked" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: lavender;" text="Address Participant Needs" />
+      <Button fx:id="EventSetup" layoutX="126.0" layoutY="237.0" mnemonicParsing="false" onAction="#eventsetupButtonClicked" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: lavender;" text="Event Setup" />
+      <Button fx:id="EventPerformancr" layoutX="126.0" layoutY="270.0" mnemonicParsing="false" onAction="#eventperformanceButtonClicked" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: lavender;" text="Event Performancr" />
+      <Button fx:id="EventHistory" layoutX="126.0" layoutY="306.0" mnemonicParsing="false" onAction="#eventhistoryClickedButton" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: lavender;" text="Event History" />
+      <Button fx:id="PolicyandComplaince" layoutX="126.0" layoutY="345.0" mnemonicParsing="false" onAction="#policyClickedButton" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: lavender;" text="Policy and Complaince" />
+      <Button fx:id="Home" layoutX="172.0" layoutY="403.0" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: lavender;" text="Home" />
+   </children>
+</AnchorPane>

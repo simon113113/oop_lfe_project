@@ -15,7 +15,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 /**
@@ -23,16 +24,18 @@ import javafx.stage.Stage;
  *
  * @author Admin
  */
-public class EventSetupController implements Initializable {
+public class ComplainandFeedbackController implements Initializable {
 
     @FXML
-    private ComboBox<?> venueCB;
+    private TableView<?> stuTV;
     @FXML
-    private ComboBox<?> locastionCB;
+    private TableColumn<?, ?> stunameTC;
     @FXML
-    private ComboBox<?> hotelnameCB;
+    private TableColumn<?, ?> stuidTV;
     @FXML
-    private TextField entrydateTF;
+    private TableColumn<?, ?> complainTC;
+    @FXML
+    private ComboBox<?> studentCB;
 
     /**
      * Initializes the controller class.
@@ -43,12 +46,12 @@ public class EventSetupController implements Initializable {
     }    
 
     @FXML
-    private void showdetailsClickedButton(ActionEvent event) {
+    private void submitClickedButton(ActionEvent event) {
     }
 
     @FXML
-    private void returndashboardClickedButton(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/tahmina/VenueIncharge.fxml"));
+    private void returntodashboardClickedButton(ActionEvent event) throws IOException {
+         Parent parent = FXMLLoader.load(getClass().getResource("/tahmina/VenueIncharge.fxml"));
     Scene scene = new Scene(parent);
     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
     window.setScene(scene);
