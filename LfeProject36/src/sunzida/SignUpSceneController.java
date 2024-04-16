@@ -15,6 +15,8 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -85,17 +87,46 @@ public class SignUpSceneController implements Initializable {
 
     private void saveUserDataToFile(AllUserData userData) {
         File allUserDataFile = new File("AllUserData.bin");
+    FileOutputStream fos = null;
+    ObjectOutputStream oos = null;
 
-        try (FileOutputStream fos = new FileOutputStream(allUserDataFile, true);
-            ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(userData);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "User data saved successfully");
-            alert.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to save user data");
-            alert.showAndWait();
+    try {
+        if (allUserDataFile.exists()) {
+            fos = new FileOutputStream(allUserDataFile, true);
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(allUserDataFile);
+            oos = new ObjectOutputStream(fos);
         }
+
+        oos.writeObject(userData);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "User data saved successfully");
+        alert.showAndWait();
+    } catch (IOException e) {
+        e.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to save user data");
+        alert.showAndWait();
+    } finally {
+        try {
+            if (oos != null) {
+                oos.close();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(SignUpSceneController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+//        File allUserDataFile = new File("AllUserData.bin");
+//
+//        try (FileOutputStream fos = new FileOutputStream(allUserDataFile, true);
+//            ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+//            oos.writeObject(userData);
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION, "User data saved successfully");
+//            alert.showAndWait();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to save user data");
+//            alert.showAndWait();
+//        }
     }
     
     @FXML
@@ -105,7 +136,7 @@ public class SignUpSceneController implements Initializable {
         String gender = "";
         RadioButton selectedRadioButton = (RadioButton) genderToggleGroup.getSelectedToggle();
         if (selectedRadioButton != null) {
-            gender = selectedRadioButton.getText(); // This will give you the text of the selected radio button
+            gender = selectedRadioButton.getText(); 
         }
         
          if (userNameTF.getText().isEmpty() || passTF.getText().isEmpty()
