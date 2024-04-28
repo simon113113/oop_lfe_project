@@ -36,7 +36,7 @@ public class HeadMonitorController implements Initializable {
     @FXML
     private Button LogOutButton;
     @FXML
-    private Label Grating;
+    private Label Gradiing;
     @FXML
     private ComboBox<?> GroupComboBox;
     @FXML
