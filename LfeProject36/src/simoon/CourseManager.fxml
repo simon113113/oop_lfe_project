@@ -21,7 +21,7 @@
                <top>
                   <AnchorPane prefHeight="75.0" prefWidth="222.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label layoutX="35.0" layoutY="14.0" prefHeight="45.0" prefWidth="135.0" text="Welcome" textAlignment="CENTER">
+                        <Label fx:id="WelcomeLebel" layoutX="35.0" layoutY="14.0" prefHeight="45.0" prefWidth="135.0" text="Welcome" textAlignment="CENTER">
                            <font>
                               <Font name="Arial Black" size="26.0" />
                            </font>
@@ -32,7 +32,14 @@
                      </effect>
                   </AnchorPane>
                </top>
-               <center>
+               <effect>
+                  <Lighting bumpInput="$null">
+                     <light>
+                        <Light.Distant color="#3ef0e7" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <right>
                   <AnchorPane prefHeight="426.0" prefWidth="190.0" BorderPane.alignment="CENTER">
                      <children>
                         <Button layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#RegisteredStudentsOnClick" prefHeight="36.0" prefWidth="157.0" text="Registered Students">
@@ -74,14 +81,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-               </center>
-               <effect>
-                  <Lighting bumpInput="$null">
-                     <light>
-                        <Light.Distant color="#3ef0e7" />
-                     </light>
-                  </Lighting>
-               </effect>
+               </right>
             </BorderPane>
          </children>
       </AnchorPane>

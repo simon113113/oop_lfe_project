@@ -43,7 +43,7 @@
                <top>
                   <AnchorPane prefHeight="79.0" prefWidth="202.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label contentDisplay="TOP" layoutX="27.0" layoutY="-18.0" prefHeight="64.0" prefWidth="121.0" text="       Welcome" textAlignment="CENTER" wrapText="true">
+                        <Label fx:id="WelcomeLabel" contentDisplay="TOP" layoutX="27.0" layoutY="-18.0" prefHeight="64.0" prefWidth="121.0" text="       Welcome" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="Arial Black" size="21.0" />
                            </font>
@@ -111,7 +111,7 @@
                   <ComboBox fx:id="GroupComboBox" layoutX="77.0" layoutY="110.0" onAction="#GroupCB" prefWidth="150.0" promptText="Group" />
                   <ComboBox fx:id="SerialComboBox" layoutX="77.0" layoutY="162.0" onAction="#SerialCB" prefWidth="150.0" promptText="Serial" />
                   <BottomNavigationButton fx:id="SubmitTF" layoutX="77.0" layoutY="257.0" onAction="#SubmitButtonOnClick" text="Submit" />
-                  <ComboBox layoutX="77.0" layoutY="218.0" onAction="#GradeCB" prefWidth="150.0" promptText="Grade" />
+                  <ComboBox fx:id="GradeComboBox" layoutX="77.0" layoutY="218.0" onAction="#GradeCB" prefWidth="150.0" promptText="Grade" />
                   <TextArea fx:id="CommentDetails" layoutX="21.0" layoutY="299.0" prefHeight="182.0" prefWidth="494.0" />
                   <Button fx:id="Comment" layoutX="17.0" layoutY="489.0" mnemonicParsing="false" onAction="#CommentButtonOnClick" text="Comment" />
                </children>
