@@ -36,6 +36,8 @@ public class HeadMonitorController implements Initializable {
     @FXML
     private Button LogOutButton;
     @FXML
+    private Button Grading;
+    @FXML
     private Label Gradiing;
     @FXML
     private ComboBox<?> GroupComboBox;
@@ -55,6 +57,50 @@ public class HeadMonitorController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void GroupMonitorOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void RergularActivityOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void DailyFeedbackOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void FacultyDiscussionOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void ImportantNotesOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void HomeOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void LogOutOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void GradingOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void GroupCB(ActionEvent event) {
+    }
+
+    @FXML
+    private void SerialCB(ActionEvent event) {
+    }
+
+    @FXML
+    private void GradeCB(ActionEvent event) {
+    }
 
     @FXML
     private void CommentButtonOnClick(ActionEvent event) {
