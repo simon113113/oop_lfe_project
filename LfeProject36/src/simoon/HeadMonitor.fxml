@@ -39,7 +39,7 @@
       </MenuBar>
       <AnchorPane prefHeight="529.0" prefWidth="753.0">
          <children>
-            <BorderPane layoutX="14.0" layoutY="49.0" prefHeight="517.0" prefWidth="202.0">
+            <BorderPane layoutX="14.0" layoutY="32.0" prefHeight="534.0" prefWidth="202.0">
                <top>
                   <AnchorPane prefHeight="79.0" prefWidth="202.0" BorderPane.alignment="CENTER">
                      <children>
@@ -64,15 +64,15 @@
                <center>
                   <AnchorPane prefHeight="463.0" prefWidth="202.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="GroupMonitorButton" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#GroupMonitorOnClick" prefHeight="33.0" prefWidth="144.0" text=" Group Monitor">
+                        <Button layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#GroupMonitorOnClick" prefHeight="33.0" prefWidth="144.0" text=" Group Monitor">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="RergularActivitybutton" layoutX="15.0" layoutY="68.0" mnemonicParsing="false" onAction="#RergularActivityOnClick" prefHeight="34.0" prefWidth="132.0" text="Regular Activity" />
-                        <Button fx:id="DailyFeedbackButton" layoutX="13.0" layoutY="120.0" mnemonicParsing="false" onAction="#DailyFeedbackOnClick" prefHeight="40.0" prefWidth="132.0" text="Daily Feedback" />
-                        <Button fx:id="FacultyDiscussionButton" layoutX="13.0" layoutY="180.0" mnemonicParsing="false" onAction="#FacultyDiscussionOnClick" prefHeight="41.0" prefWidth="160.0" text="Faculty Discussion" />
-                        <Button fx:id="ImportantNotesButton" layoutX="13.0" layoutY="238.0" mnemonicParsing="false" onAction="#ImportantNotesOnClick" prefHeight="37.0" prefWidth="161.0" text="Important Notes" />
+                        <Button layoutX="15.0" layoutY="68.0" mnemonicParsing="false" onAction="#RergularActivityOnClick" prefHeight="34.0" prefWidth="132.0" text="Regular Activity" />
+                        <Button layoutX="13.0" layoutY="120.0" mnemonicParsing="false" onAction="#DailyFeedbackOnClick" prefHeight="40.0" prefWidth="132.0" text="Daily Feedback" />
+                        <Button layoutX="13.0" layoutY="180.0" mnemonicParsing="false" onAction="#FacultyDiscussionOnClick" prefHeight="41.0" prefWidth="160.0" text="Faculty Discussion" />
+                        <Button layoutX="13.0" layoutY="238.0" mnemonicParsing="false" onAction="#ImportantNotesOnClick" prefHeight="37.0" prefWidth="161.0" text="Important Notes" />
                         <AnchorPane layoutY="331.0" prefHeight="97.0" prefWidth="202.0">
                            <children>
                               <Button fx:id="HomeButton" layoutX="11.0" layoutY="47.0" mnemonicParsing="false" onAction="#HomeOnClick" prefHeight="34.0" prefWidth="52.0" text="Home" />
@@ -98,11 +98,7 @@
                   </AnchorPane>
                </center>
                <effect>
-                  <Lighting diffuseConstant="1.53" light="$null" specularConstant="0.0" specularExponent="19.07" surfaceScale="0.0">
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                  </Lighting>
+                  <ColorAdjust brightness="-0.31" contrast="0.33" hue="-0.05" saturation="0.69" />
                </effect>
             </BorderPane>
             <AnchorPane layoutX="203.0" layoutY="29.0" prefHeight="504.0" prefWidth="536.0">
@@ -115,12 +111,12 @@
                   <ComboBox fx:id="GroupComboBox" layoutX="77.0" layoutY="110.0" onAction="#GroupCB" prefWidth="150.0" promptText="Group" />
                   <ComboBox fx:id="SerialComboBox" layoutX="77.0" layoutY="162.0" onAction="#SerialCB" prefWidth="150.0" promptText="Serial" />
                   <BottomNavigationButton fx:id="SubmitTF" layoutX="77.0" layoutY="257.0" onAction="#SubmitButtonOnClick" text="Submit" />
-                  <ComboBox fx:id="GradeComboBox" layoutX="77.0" layoutY="218.0" onAction="#GradeCB" prefWidth="150.0" promptText="Grade" />
+                  <ComboBox layoutX="77.0" layoutY="218.0" onAction="#GradeCB" prefWidth="150.0" promptText="Grade" />
                   <TextArea fx:id="CommentDetails" layoutX="21.0" layoutY="299.0" prefHeight="182.0" prefWidth="494.0" />
                   <Button fx:id="Comment" layoutX="17.0" layoutY="489.0" mnemonicParsing="false" onAction="#CommentButtonOnClick" text="Comment" />
                </children>
                <effect>
-                  <ColorAdjust brightness="-0.07" contrast="-0.05" hue="0.5" saturation="0.38" />
+                  <ColorAdjust brightness="0.29" contrast="0.12" hue="0.13" saturation="0.41" />
                </effect>
             </AnchorPane>
          </children>

@@ -22,16 +22,6 @@ import javafx.scene.control.TextArea;
 public class HeadMonitorController implements Initializable {
 
     @FXML
-    private Button GroupMonitorButton;
-    @FXML
-    private Button RergularActivitybutton;
-    @FXML
-    private Button DailyFeedbackButton;
-    @FXML
-    private Button FacultyDiscussionButton;
-    @FXML
-    private Button ImportantNotesButton;
-    @FXML
     private Button HomeButton;
     @FXML
     private Button LogOutButton;
@@ -43,8 +33,6 @@ public class HeadMonitorController implements Initializable {
     private ComboBox<?> GroupComboBox;
     @FXML
     private ComboBox<?> SerialComboBox;
-    @FXML
-    private ComboBox<?> GradeComboBox;
     @FXML
     private TextArea CommentDetails;
     @FXML
