@@ -22,6 +22,8 @@ import javafx.scene.control.TextArea;
 public class HeadMonitorController implements Initializable {
 
     @FXML
+    private Label WelcomeLabel;
+    @FXML
     private Button HomeButton;
     @FXML
     private Button LogOutButton;
@@ -33,6 +35,8 @@ public class HeadMonitorController implements Initializable {
     private ComboBox<?> GroupComboBox;
     @FXML
     private ComboBox<?> SerialComboBox;
+    @FXML
+    private ComboBox<?> GradeComboBox;
     @FXML
     private TextArea CommentDetails;
     @FXML

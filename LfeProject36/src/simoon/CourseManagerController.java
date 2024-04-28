@@ -23,6 +23,8 @@ import javafx.scene.control.TextArea;
 public class CourseManagerController implements Initializable {
 
     @FXML
+    private Label WelcomeLebel;
+    @FXML
     private Button HomeButton;
     @FXML
     private Button LogOutButton;
